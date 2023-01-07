@@ -22,8 +22,7 @@ def home():
 @basic_auth.required
 def sentimento(frase):
     tb = TextBlob(frase)
-    tb_en = tb.translate(to='en')
-    polaridade = tb_en.sentiment.polarity
+    polaridade = tb.sentiment.polarity
     return "polaridade: {}".format(polaridade)
 
 @app.route('/cotacao/', methods=['POST'])
